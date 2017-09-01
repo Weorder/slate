@@ -1,12 +1,12 @@
 ## Setup POS
 
-Setup POS status.
+With this call the POS defines the department and menu to be used.
 
 > Request (POS -> Snappit)
 
 ```json
 {
-    "status": "start",
+    "department": 1,
     "menuId": 10
 }
 ```
@@ -21,16 +21,9 @@ Setup POS status.
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-status | string | true | start / stop | POS status
-menuId | integer | false | \d+ | menu id which is used in POS 
+department | integer | true | \d+ | The department to use
+menuId     | integer | true | \d+ | menu id which is used in POS 
 
-"start" - POS initiates start in communication. POS is ready to work.<br/>
-"stop" - POS initiates stop in communication. Snappit will not send any requests to POS.
-
-<aside class="notice">
-POS will be marked as "started" if Snappit receives some data from POS.<br/>
-POS will be marked as "stopped" if Snappit doesn't have success with sending data to POS.
-</aside>
 
 > Response (success)
 
