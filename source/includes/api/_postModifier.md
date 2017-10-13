@@ -1,19 +1,25 @@
-## Setup POS
+## Modifier - Create
 
-With this call the POS defines the department and menu to be used.
+Create modifier.
 
 > Request (POS -> Snappit)
 
+```
+HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups/1/modifiers
+```
+
 ```json
 {
-    "department": 1,
-    "menuId": 10
+    "modifierNo": 22,
+    "name": "Cheese",
+    "price": 10.5,
+    "description": "additional 50g of cheese"
 }
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 POST http://snappo.com/api/pos/v1/set_pos_status`
+`HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}/modifiers'
 
 `Content-Type: application/json`
 
@@ -21,16 +27,17 @@ With this call the POS defines the department and menu to be used.
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-department | integer | true | \d+ | The department to use
-menuId     | integer | true | \d+ | menu id which is used in POS 
-
+modifierNo | integer | true | \d+ | modifier number
+name | string | true | \w+ | name of modifier
+price | float | true | \d+\.\d{1-2} | name of modifier
+description | string | false | [\w ,-\.] | description of modifier
 
 > Response (success)
 
 ```json
 {
   "status": "success",
-  "message": "POS is marked as started. Snappit uses menu #10."
+  "message": "Modifier was created"
 }
 ```
 
@@ -39,7 +46,7 @@ menuId     | integer | true | \d+ | menu id which is used in POS
 ```json
 {
   "status": "error",
-  "message": "Authorization error. Please call Snappit support team."
+  "message": "Authentication error. Please call Snappit support team."
 }
 ```
 

@@ -1,4 +1,4 @@
-# Authorization
+# Authentication
 
 > Example on PHP
 
@@ -32,7 +32,7 @@
         'X-POS-Merchant: ' . $merchantId,
         'X-POS-Timestamp: ' . $dateUtcString,
         'X-POS-Content-Digest: SHA256=' . $dataHash,
-        'Authorization: RSA-SHA256 ' . $cryptedAuthHash,
+        'Authentication: RSA-SHA256 ' . $cryptedAuthHash,
     ];
 ?>
 ```
@@ -44,4 +44,4 @@ Header | Required? | Description
 X-POS-Merchant  | true | Merchant ID
 X-POS-Timestamp | true | UTC time in 'Y-m-d H:i:s' format
 X-POS-Content-Digest | true | SHA256 of request body
-Authorization | true | Authorization key
+Authentication | true | Authentication key

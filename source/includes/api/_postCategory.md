@@ -1,19 +1,24 @@
-## Set order status
+## Category - Create
 
-Set order status.
+Create new category.
 
 > Request (POS -> Snappit)
 
+```
+HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/mainCategories/5/categories
+```
+
 ```json
 {
-    "externalId": 111,
-    "status": "accepted"
+    "categoryNo": 10,
+    "name": "Pizza from chef",
+    "description": "Pizza from chef"
 }
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 POST http://snappo.com/api/pos/v1/set_order_status`
+`HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/mainCategories/{mainCategoryNo}/categories'
 
 `Content-Type: application/json`
 
@@ -21,15 +26,16 @@ Set order status.
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-externalId | integer | true | \d+ | order id in Snappit system
-status | string | true | accepted / ready / delivered / cancelled | order status
+categoryNo | integer | true | \d+ | category number
+name | string | true | \w+ | name of category
+description | string | false | \w+ | description of category
 
 > Response (success)
 
 ```json
 {
   "status": "success",
-  "message": "Order status is updated."
+  "message": "Category was created"
 }
 ```
 
@@ -38,7 +44,7 @@ status | string | true | accepted / ready / delivered / cancelled | order status
 ```json
 {
   "status": "error",
-  "message": "Can not accept already cancelled order."
+  "message": "Authentication error. Please call Snappit support team."
 }
 ```
 

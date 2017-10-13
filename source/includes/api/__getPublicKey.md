@@ -4,7 +4,7 @@ Get the public key for authentication
 
 ### HTTP Request
 
-`HTTP/1.1 GET http://snappo.com/api/pos/get_public_key`
+`HTTP/1.1 GET https://snappo.com/api/pos/get_public_key`
 
 <aside class="notice">
 You don't need to pass any headers in this method.
