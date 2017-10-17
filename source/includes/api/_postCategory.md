@@ -2,10 +2,10 @@
 
 Create new category.
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/mainCategories/5/categories
+HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/mainCategories/5/categories
 ```
 
 ```json
@@ -18,7 +18,7 @@ HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/mainCate
 
 ### HTTP Request
 
-`HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/mainCategories/{mainCategoryNo}/categories'
+`HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/mainCategories/{mainCategoryNo}/categories`
 
 `Content-Type: application/json`
 
@@ -27,36 +27,11 @@ HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/mainCate
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
 categoryNo | integer | true | \d+ | category number
-name | string | true | \w+ | name of category
-description | string | false | \w+ | description of category
+name | string | true | | category name
+description | string | false | | category description
 
-> Response (success)
+> Response: no content
 
-```json
-{
-  "status": "success",
-  "message": "Category was created"
-}
-```
+### HTTP Response (success)
 
-> Response (error)
-
-```json
-{
-  "status": "error",
-  "message": "Authentication error. Please call Snappit support team."
-}
-```
-
-### HTTP Response
-
-`HTTP/1.1 200`
-
-`Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message
+`HTTP/1.1 201`

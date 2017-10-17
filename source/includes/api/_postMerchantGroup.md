@@ -2,10 +2,10 @@
 
 Create merchant group.
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups
+HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups
 ```
 
 ```json
@@ -23,7 +23,7 @@ HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups
 
 ### HTTP Request
 
-`HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups'
+`HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups`
 
 `Content-Type: application/json`
 
@@ -32,38 +32,19 @@ HTTP/1.1 POST https://snappo.com/api/pos/v1/merchant-groups
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
 merchantGroupNo | integer | true | \d+ | merchant group number
-name | string | true | \w+ | name of merchant group
-city | string | false | \w+ | city of merchant group
-timeZone | string | false | \w+\/ | timeZone of merchant group
+name | string | true | | merchant group name
+city | string | false | | merchant group city
+timeZone | string | false | | merchant group time zone
 supportEmails | array | false | array of strings | emails of responsible persons
 
-> Response (success)
+Supported time zones |
+-------------------- |
+Europe/Oslo |
+Europe/London |
+UTC |
 
-```json
-{
-  "status": "success",
-  "message": "Merchant group was created"
-}
-```
+> Response: no content
 
-> Response (error)
+### HTTP Response (success)
 
-```json
-{
-  "status": "error",
-  "message": "Authentication error. Please call Snappit support team."
-}
-```
-
-### HTTP Response
-
-`HTTP/1.1 200`
-
-`Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message
+`HTTP/1.1 201`

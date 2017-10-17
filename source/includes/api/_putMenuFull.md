@@ -2,10 +2,10 @@
 
 Update menu with all structure (main categories, categories, articles, modifier groups, modifiers).
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/full
+HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/full
 ```
 
 ```json
@@ -63,7 +63,7 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/full
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/full'
+`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/full'
 
 `Content-Type: application/json`
 
@@ -72,40 +72,15 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/full
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
 menuNo | integer | true | \d+ | menu number
-name | string | false | \w+ | menu name
-mainCategories | array | true | array of objects | main category list (see structure - [Main category](#main-category-create))
-mainCategory.categories | array | true | array of objects | category list (see structure - [Category](#category-create))
-category.articles | array | true | array of objects | article list (see structure - [Article](#article-create), except "imageBase64Encode" field)
-modifierGroups | array | true | array of objects | modifier group list (see structure - [Modifier group](#modifier-group-create))
-modifiers | array | false | array of objects | modifiers list (see structure - [Modifier](#modifier-create))
+name | string | false | | menu name
+mainCategories | array | true | array of objects | list of [Main category](#main-category-create) objects
+mainCategory.categories | array | true | array of objects | list of [Category](#category-create) objects
+category.articles | array | true | array of objects | list of [Article](#article-create) objects (except "imageBase64Encode" field)
+modifierGroups | array | true | array of objects | list of [Modifier group](#modifier-group-create) objects
+modifiers | array | false | array of objects | list of [Modifier](#modifier-create) objects
 
-> Response (success)
+> Response: no content
 
-```json
-{
-  "status": "success",
-  "message": "Menu was updated"
-}
-```
-
-> Response (error)
-
-```json
-{
-  "status": "error",
-  "message": "Wrong menu structure. Please call Snappit support team."
-}
-```
-
-### HTTP Response
+### HTTP Response (success)
 
 `HTTP/1.1 200`
-
-`Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message

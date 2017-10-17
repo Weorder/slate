@@ -2,10 +2,10 @@
 
 Create modifier group.
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/modifier-groups
+HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/modifier-groups
 ```
 
 ```json
@@ -20,7 +20,7 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/modifier-groups
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}/modifier-groups'
+`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/modifier-groups`
 
 `Content-Type: application/json`
 
@@ -29,38 +29,18 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/modifier-groups
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
 modifierGroupNo | integer | true | \d+ | modifier group number
-name | string | true | \w+ | name of modifier group
+name | string | true | | modifier group name
 type | string | false | ONE / ANY | type (how many modifiers can be chosen)
-description | string | false | [\w ,-!:\.\?]  | description of modifier group
-modifiers | array | false | array of integer | modifiers list
+description | string | false | | modifier group description
+modifiers | array | false | array of integer | list of related modifiers
 
-> Response (success)
+Supported types |
+--------------- |
+ONE |
+ANY |
 
-```json
-{
-  "status": "success",
-  "message": "Modifier group was created"
-}
-```
+> Response: no content
 
-> Response (error)
+### HTTP Response (success)
 
-```json
-{
-  "status": "error",
-  "message": "Authentication error. Please call Snappit support team."
-}
-```
-
-### HTTP Response
-
-`HTTP/1.1 200`
-
-`Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message
+`HTTP/1.1 201`

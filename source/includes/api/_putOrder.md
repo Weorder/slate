@@ -1,11 +1,11 @@
 ## Order - Update 
 
-Change certain properties of order.
+Update certain properties of order.
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/merchants/101/orders/1002
+HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/merchants/101/orders/1002
 ```
 
 ```json
@@ -17,7 +17,7 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/merchants/101/order
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}/merchants/{merchantNo}/orders/{orderNo}'
+`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/merchants/{merchantNo}/orders/{orderNo}`
 
 `Content-Type: application/json`
 
@@ -25,37 +25,12 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/merchants/101/order
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-orderNo | integer | true | \d+ | order number (in Snappit)
+orderNo | integer | true | \d+ | order number (in WeOrder)
 pickupAt | string | false | YYYY-MM-DD HH:ii | pickup or delivery time
-status | string | false | NOT_CONFIRMED / CONFIRMED / DELIVERED /CANCELLED | status of order
+status | string | false | NOT_CONFIRMED / CONFIRMED / DELIVERED /CANCELLED | order status
 
-> Response (success)
+> Response: no content
 
-```json
-{
-  "status": "success",
-  "message": "Order was updated"
-}
-```
-
-> Response (error)
-
-```json
-{
-  "status": "error",
-  "message": "Authentication error. Please call Snappit support team."
-}
-```
-
-### HTTP Response
+### HTTP Response (success)
 
 `HTTP/1.1 200`
-
-`Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message

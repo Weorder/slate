@@ -2,57 +2,38 @@
 
 Show already created merchant groups.
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 GET https://snappo.com/api/pos/v1/merchant-groups
+HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 GET https://snappo.com/api/pos/v1/merchant-groups`
+`HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups`
 
-> Response (success)
-
-```json
-{
-    "status": "success",
-    "message": "",
-    "data": [
-        {
-            "merchantGroupNo": 1,
-            "name": "Restaurant group 1",
-            "city": "Oslo",
-            "timeZone": "Europe/Oslo",
-            "supportEmails": [
-              "manager1@example.com", 
-              "manager2@example.com" 
-            ]
-        },
-        ...
-    ]
-}
-```
-
-> Response (error)
+> Response:
 
 ```json
-{
-  "status": "error",
-  "message": "Authentication error. Please call Snappit support team."
-}
+[
+    {
+        "merchantGroupNo": 1,
+        "name": "Restaurant group 1",
+        "city": "Oslo",
+        "timeZone": "Europe/Oslo",
+        "supportEmails": [
+          "manager1@example.com", 
+          "manager2@example.com" 
+        ]
+    },
+    ...
+]
 ```
 
-### HTTP Response
+### HTTP Response (success)
 
 `HTTP/1.1 200`
 
 `Content-Type: application/json`
 
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message
-data | array | true | array of objects | list of merchant groups (see structure - [Merchant group](#merchant-group-create))
+Array of [Merchant group](#merchant-group-create) objects.

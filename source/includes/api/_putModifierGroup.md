@@ -1,12 +1,12 @@
 ## Modifier group - Update
 
-Change any property or properties of modifier group.
+Update certain properties of modifier group.
 If some property is not passed it will be SKIPPED (NOT CHANGED).
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/modifier-groups/11
+HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/modifier-groups/11
 ```
 
 ```json
@@ -18,7 +18,7 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/modifier-groups/11
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}/modifier-groups/{modifierGroupNo}'
+`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/modifier-groups/{modifierGroupNo}`
 
 `Content-Type: application/json`
 
@@ -27,38 +27,13 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/modifier-groups/11
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
 modifierGroupNo | integer | true | \d+ | modifier group number
-name | string | false | \w+ | name of modifier group
-description | string | false | [\w ,-\.] | description of modifier group
+name | string | false | | modifier group name
+description | string | false | | modifier group description
 type | string | false | ONE / ANY | type (how many modifiers can be chosen)
 modifiers | array | false | array of integer | list of related modifiers (modifierNo)
 
-> Response (success)
+> Response: no content
 
-```json
-{
-  "status": "success",
-  "message": "Modifier group was updated"
-}
-```
-
-> Response (error)
-
-```json
-{
-  "status": "error",
-  "message": "Authentication error. Please call Snappit support team."
-}
-```
-
-### HTTP Response
+### HTTP Response (success)
 
 `HTTP/1.1 200`
-
-`Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message

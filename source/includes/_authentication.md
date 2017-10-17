@@ -8,7 +8,7 @@
     //
     // $data = '{"merchantId": 101, ...}';
     // $method = "POST";
-    // $url = "http://snappo.com/api/pos/v1/...";
+    // $url = "https://weorder.com/api/pos/v1/...";
     // $merchantId = 'POS merchant ID';
     // $privateKey = '-----BEGIN RSA PRIVATE KEY----- ...';
     // $passphrase = 'passphrase for privateKey';
@@ -32,7 +32,7 @@
         'X-POS-Merchant: ' . $merchantId,
         'X-POS-Timestamp: ' . $dateUtcString,
         'X-POS-Content-Digest: SHA256=' . $dataHash,
-        'Authentication: RSA-SHA256 ' . $cryptedAuthHash,
+        'Authorization: RSA-SHA256 ' . $cryptedAuthHash,
     ];
 ?>
 ```
@@ -44,4 +44,4 @@ Header | Required? | Description
 X-POS-Merchant  | true | Merchant ID
 X-POS-Timestamp | true | UTC time in 'Y-m-d H:i:s' format
 X-POS-Content-Digest | true | SHA256 of request body
-Authentication | true | Authentication key
+Authorization | true | Authorization key

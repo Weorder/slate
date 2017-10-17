@@ -43,8 +43,8 @@ includes:
   - api/deleteArticle
   - api/getOrder
   - api/putOrder
-  - api/snappitPostOrder
-  - api/snappitPutOrder
+  - api/weorderPostOrder
+  - api/weorderPutOrder
   - api/postUpdates
 
 search: true

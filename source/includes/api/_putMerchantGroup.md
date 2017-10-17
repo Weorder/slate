@@ -1,12 +1,12 @@
 ## Merchant group - Update 
 
-Change any property or properties of merchant group.
+Update certain properties of merchant group.
 If some property is not passed it will be SKIPPED (NOT CHANGED).
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1
+HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1
 ```
 
 ```json
@@ -21,7 +21,7 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}'
+`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}`
 
 `Content-Type: application/json`
 
@@ -30,40 +30,15 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
 merchantGroupNo | integer | true | \d+ | merchant group number
-name | string | false | \w+ | name of merchant group
-city | string | false | \w+ | city of merchant group
-timeZone | string | false | \w+\/ | timeZone of merchant group
+name | string | false | | merchant group name
+city | string | false | | merchant group city
+timeZone | string | false | | merchant group time zone (see above)
 supportEmails | array | false | array of strings | emails of responsible persons
 merchants | array | false | array of integer | list of related merchants (merchantNo)
 menus | array | false | array of integer | list of related menus (menuNo)
 
-> Response (success)
+> Response: no content
 
-```json
-{
-  "status": "success",
-  "message": "Merchant group was updated"
-}
-```
-
-> Response (error)
-
-```json
-{
-  "status": "error",
-  "message": "Authentication error. Please call Snappit support team."
-}
-```
-
-### HTTP Response
+### HTTP Response (success)
 
 `HTTP/1.1 200`
-
-`Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message

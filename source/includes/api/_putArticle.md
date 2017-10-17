@@ -1,12 +1,12 @@
 ## Article - Update 
 
-Change any property or properties of article.
+Update certain properties of article.
 If some property is not passed it will be SKIPPED (NOT CHANGED).
 
-> Request (POS -> Snappit)
+> Request (POS -> WeOrder)
 
 ```
-HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/main-categories/5/categories/10/articles/20
+HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/main-categories/5/categories/10/articles/20
 ```
 
 ```json
@@ -19,7 +19,7 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/main-cate
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/main-categories/{mainCategoryNo}/category/{categoryNo}/articles/{articleNo}'
+`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/main-categories/{mainCategoryNo}/category/{categoryNo}/articles/{articleNo}`
 
 `Content-Type: application/json`
 
@@ -28,39 +28,13 @@ HTTP/1.1 PUT https://snappo.com/api/pos/v1/merchant-groups/1/menus/101/main-cate
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
 articleNo | integer | true | \d+ | article number
-name | string | false | \w+ | name of article
-price | float | false | \d+\.\d{1-2} | price of article
-description | string | false | \w+ | description of article
-modifierGroups | array | false | array of integers | list of related modifierGroups (modifierGroupNo)
+name | string | false | | article name
+price | float | false | | article price
+description | string | false | | article description
+modifierGroups | array | false | array of integers | list of related modifier groups (modifierGroupNo)
 
+> Response: no content
 
-> Response (success)
-
-```json
-{
-  "status": "success",
-  "message": "Article was updated"
-}
-```
-
-> Response (error)
-
-```json
-{
-  "status": "error",
-  "message": "Authentication error. Please call Snappit support team."
-}
-```
-
-### HTTP Response
+### HTTP Response (success)
 
 `HTTP/1.1 200`
-
-`Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message

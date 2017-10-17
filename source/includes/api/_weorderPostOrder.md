@@ -1,4 +1,4 @@
-## Order - Create (Snappit to POS)
+## Order - Create (WeOrder to POS)
 
 Create new order.
 
@@ -6,7 +6,7 @@ Create new order.
 POS (which supports public url) must have this method on its side.
 </aside>
 
-> Request (Snappit -> POS)
+> Request (WeOrder -> POS)
 
 ```
 HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/orders
@@ -16,8 +16,8 @@ HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/ord
 {
     "orderNo": 1100,
     "menuNo": 111,
-    "tip": 15.0,
-    "total": 372.0,
+    "tip": 15,
+    "total": 372,
     "paymentType": "PAYEX",
     "createdAt": "2017-09-01 09:10",
     "pickupAt": "2017-09-01 10:20",
@@ -53,38 +53,36 @@ HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/ord
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-orderNo | integer | true | \d+ | order number (in Snappit)
+orderNo | integer | true | \d+ | order number (in WeOrder)
 menuNo | integer | true | \d+ | menu id in POS (which is used for order)
-tip | float | true | \d+\.\d{1-2} | tip for waiters
-total | float | true | \d+\.\d{1-2} | total price of order
-paymentType | string | true | \w+_ | payment type (see below)
+tip | float | true | | tip for waiters
+total | float | true | | order total price
+paymentType | string | true | | payment type (see below)
 createdAt | string | true | YYYY-MM-DD HH:ii | create order time
 pickupAt | string | true | YYYY-MM-DD HH:ii | pickup or delivery time
-status | string | true | \w+_ | status of order (see below)
+status | string | true | | order status (see below)
 customer | object | true | object | customer data
-customer.name | string | true | \w+ | name of customer
-customer.phone | string | true | \w+ | phone of customer
-orderLines | array | true | array of objects | order line list
-orderLine.orderLineNo | integer | true | \d+ | order line number (in Snappit) 
+customer.name | string | true | | customer name
+customer.phone | string | true | | customer phone
+orderLines | array | true | array of objects | list of order line
+orderLine.orderLineNo | integer | true | \d+ | order line number (in WeOrder) 
 orderLine.articleNo | integer | true | \d+ | article number (in POS)
-orderLine.price | float | true | \d+\.\d{1-2} | price of article with modifiers
-orderLine.quantity | integer | true | \d+ | quantity of article
-orderLine.message | string | false | \w+ | additional message for ordered article
-orderLine.modifiers | array | false | array of integers | list of chosen modifier ids
+orderLine.price | float | true | | price of article with modifiers
+orderLine.quantity | integer | true | \d+ | article quantity
+orderLine.message | string | false | | additional message for ordered article
+orderLine.modifiers | array | false | array of integers | list of chosen modifiers (modifierNo)
 tableNumber | integer | false | \d+ | restaurant table number
-deliveryAddress | string | false | \w+ | delivery address
-message | string | false | \w+ | additional message for order
+deliveryAddress | string | false | | delivery address
+message | string | false | | additional message for order
 
 Payment type | Description
 ------------ | ----------- 
 AT_PICKUP | means pay at pickup or delivery
-PAYEX | payment system
-VIPPS | payment system
-BAMBORA | payment system
-KLARNA | not implemented yet
-MOBILE_PAY | payment system
 CASH_POINTS | means order was payed by accumulated cash points
-EPAY | not implemented yet
+PAYEX | 
+VIPPS | 
+BAMBORA | 
+EPAY |
 
 Status | Description
 ------------ | ----------- 
@@ -93,33 +91,10 @@ CONFIRMED | order is confirmed by waiter
 DELIVERED | order is delivered
 CANCELLED | order is cancelled
 
-> Response (success)
+> Response: no content
 
-```json
-{
-  "status": "success",
-  "message": "Order was created."
-}
-```
+### HTTP Response (success)
 
-> Response (error)
-
-```json
-{
-  "status": "error",
-  "message": "Wrong customer information"
-}
-```
-
-### HTTP Response
-
-`HTTP/1.1 200`
+`HTTP/1.1 201`
 
 `Content-Type: application/json`
-
-### Response Parameters
-
-Parameter | Data type | Required? | Format | Description
---------- | --------- | --------- | ------ | -----------
-status | string | true | success, error | response status
-message | string | true | \w+ | success or error message
