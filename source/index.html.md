@@ -10,8 +10,11 @@ toc_footers:
 includes:
   - introduction
   - authentication
-  - api
-  - api/commonInformation
+  - apiCommonInfo
+  - api/commonInfoStructure
+  - api/commonInfoHTTPCodes
+  - api/commonInfoErrorResponse
+  - apiMerchant
 #  - api/getPublicKey
   - api/getMerchantGroups
   - api/postMerchantGroup
@@ -21,6 +24,7 @@ includes:
   - api/postMerchant
   - api/putMerchant
   - api/deleteMerchant
+  - apiMenu
   - api/postModifierGroup
   - api/putModifierGroup
   - api/deleteModifierGroup
@@ -41,6 +45,7 @@ includes:
   - api/postArticle
   - api/putArticle
   - api/deleteArticle
+  - apiOrder
   - api/getOrder
   - api/putOrder
   - api/weorderPostOrder
