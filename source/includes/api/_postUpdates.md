@@ -39,7 +39,7 @@ Type      | Description
 NEW_ORDER | new order with structure
 ORDER_UPDATE | update of specific fields of order
 
-> Response: no content:
+> Response:
 
 ```json
 [

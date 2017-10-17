@@ -63,7 +63,7 @@ HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/full
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/full'
+`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/full`
 
 `Content-Type: application/json`
 
