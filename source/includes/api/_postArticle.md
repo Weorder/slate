@@ -2,10 +2,10 @@
 
 Create new article.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/mainCategories/5/categories/10/articles
+HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/1/menus/101/mainCategories/5/categories/10/articles
 ```
 
 ```json
@@ -14,13 +14,14 @@ HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/mainCat
     "name": "4 seasons",
     "price": 499.5,
     "description": "It is a variety of pizza in Italian cuisine that is prepared ...",
+    "imageUrl": "https://pos.com/images/article20.jpg",
     "modifierGroups": [17, 20]
 }
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/mainCategories/{mainCategoryNo}/categories/{categoryNo}/articles`
+`HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/mainCategories/{mainCategoryNo}/categories/{categoryNo}/articles`
 
 `Content-Type: application/json`
 
@@ -32,7 +33,9 @@ articleNo | integer | true | \d+ | article number
 name | string | true | | article name
 price | float | true | | article price
 description | string | false | | article description
-modifierGroups | array | false | array of integers | list of related modifier groups (modifierGroupsNo)
+imageUrl | string | false | | image url
+imageBase64Encode | string | false | | base64 encoded image
+modifierGroups | array | false | array of integers | list of related modifier groups (modifierGroupsNo). You can use this parameter if you want to set/update relations between article and its modifier groups. The order of passed modifier groups is important and will be used for sorting.
 
 > Response: no content
 

@@ -6,10 +6,10 @@
 <?php
     // Necessary parametres:
     //
-    // $data = '{"merchantId": 101, ...}';
+    // $data = '{"menuNo": 101, ...}';
     // $method = "POST";
-    // $url = "https://weorder.com/api/pos/v1/...";
-    // $merchantId = 'POS merchant ID';
+    // $url = "https://api.weorder.com/pos/v1/...";
+    // $posToken = 'POS token';
     // $privateKey = '-----BEGIN RSA PRIVATE KEY----- ...';
     // $passphrase = 'passphrase for privateKey';
     
@@ -19,7 +19,7 @@
     
     $authString = strtoupper($method) . '|' . $url . '|' 
         . 'X-POS-CONTENT-DIGEST=SHA256=' . $dataHash
-        . '&X-POS-MERCHANT=' . $merchantId
+        . '&X-POS-TOKEN=' . $posToken
         . '&X-POS-TIMESTAMP=' . $dateUtcString;
     $authHash = hash('sha256', $authString, true);
     
@@ -29,7 +29,7 @@
     $cryptedAuthHash = base64_encode($cryptedAuthHash);
     
     $headers = [
-        'X-POS-Merchant: ' . $merchantId,
+        'X-POS-Token: ' . $posToken,
         'X-POS-Timestamp: ' . $dateUtcString,
         'X-POS-Content-Digest: SHA256=' . $dataHash,
         'Authorization: RSA-SHA256 ' . $cryptedAuthHash,
@@ -37,11 +37,11 @@
 ?>
 ```
 
-Each API request should contain set of headers (except "Get public key" method).
+Each API request should contain set of headers.
 
 Header | Required? | Description
 ------ | --------- | -----------
-X-POS-Merchant  | true | Merchant ID
+X-POS-Token  | true | POS token
 X-POS-Timestamp | true | UTC time in 'Y-m-d H:i:s' format
 X-POS-Content-Digest | true | SHA256 of request body
-Authorization | true | Authorization key
+Authorization | true | Signature

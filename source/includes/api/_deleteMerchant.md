@@ -2,15 +2,15 @@
 
 Delete merchant.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 DELETE https://weorder.com/api/pos/v1/merchant-groups/1/merchants/101
+HTTP/1.1 DELETE https://api.weorder.com/pos/v1/merchant-groups/1/merchants/101
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 DELETE https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/merchants/{merchantNo}`
+`HTTP/1.1 DELETE https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/merchants/{merchantNo}`
 
 > Response: no content
 

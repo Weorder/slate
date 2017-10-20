@@ -1,4 +1,4 @@
-## Order - Update (WeOrder to POS)
+## Order - Update (weorder to POS)
 
 Update certain properties of order.
 If some property is not passed it will be SKIPPED (NOT CHANGED).
@@ -7,7 +7,7 @@ If some property is not passed it will be SKIPPED (NOT CHANGED).
 POS (which supports public url) must have this method on its side.
 </aside>
 
-> Request (WeOrder -> POS)
+> Request (weorder -> POS)
 
 ```
 HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/orders/10002
@@ -15,7 +15,6 @@ HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/ord
 
 ```json
 {
-    "orderNo": 10002,
     "pickupAt": "2017-09-01 10:20"
 }
 ```
@@ -30,9 +29,8 @@ HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/ord
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-orderNo | integer | true | \d+ | order number (in WeOrder)
 pickupAt | string | false | YYYY-MM-DD HH:ii | pickup or delivery time
-status | string | false | | order status
+status | string | false | | order status. See allowed values in [Order - create](#order-create-weorder-to-pos)
 
 > Response: no content
 

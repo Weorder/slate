@@ -3,15 +3,14 @@
 Update certain properties of merchant group.
 If some property is not passed it will be SKIPPED (NOT CHANGED).
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1
+HTTP/1.1 PUT https://api.weorder.com/pos/v1/merchant-groups/1
 ```
 
 ```json
 {
-    "merchantGroupNo": 1,
     "supportEmails": [
       "manager1@example.com", 
       "manager2@example.com" 
@@ -21,7 +20,7 @@ HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}`
+`HTTP/1.1 PUT https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}`
 
 `Content-Type: application/json`
 
@@ -29,7 +28,6 @@ HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-merchantGroupNo | integer | true | \d+ | merchant group number
 name | string | false | | merchant group name
 city | string | false | | merchant group city
 timeZone | string | false | | merchant group time zone (see above)

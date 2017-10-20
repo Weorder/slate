@@ -25,16 +25,10 @@ includes:
   - api/putMerchant
   - api/deleteMerchant
   - apiMenu
-  - api/postModifierGroup
-  - api/putModifierGroup
-  - api/deleteModifierGroup
-  - api/postModifier
-  - api/putModifier
-  - api/deleteModifier
+  - api/putMenuFull
   - api/getMenus
   - api/postMenu
   - api/putMenu
-  - api/putMenuFull
   - api/deleteMenu
   - api/postMainCategory
   - api/putMainCategory
@@ -45,11 +39,17 @@ includes:
   - api/postArticle
   - api/putArticle
   - api/deleteArticle
+  - api/postModifierGroup
+  - api/putModifierGroup
+  - api/deleteModifierGroup
+  - api/postModifier
+  - api/putModifier
+  - api/deleteModifier
   - apiOrder
-  - api/getOrder
-  - api/putOrder
   - api/weorderPostOrder
   - api/weorderPutOrder
+  - api/getOrder
+  - api/putOrder
   - api/postUpdates
 
 search: true

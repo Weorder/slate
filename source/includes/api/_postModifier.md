@@ -2,10 +2,10 @@
 
 Create modifier.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/modifiers
+HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/1/modifiers
 ```
 
 ```json
@@ -19,7 +19,7 @@ HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/modifiers
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/modifiers`
+`HTTP/1.1 PUT https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/modifiers`
 
 `Content-Type: application/json`
 

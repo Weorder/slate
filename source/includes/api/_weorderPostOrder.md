@@ -1,4 +1,4 @@
-## Order - Create (WeOrder to POS)
+## Order - Create (weorder to POS)
 
 Create new order.
 
@@ -6,7 +6,7 @@ Create new order.
 POS (which supports public url) must have this method on its side.
 </aside>
 
-> Request (WeOrder -> POS)
+> Request (weorder -> POS)
 
 ```
 HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/orders
@@ -22,6 +22,9 @@ HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/ord
     "createdAt": "2017-09-01 09:10",
     "pickupAt": "2017-09-01 10:20",
     "status": "CONFIRMED",
+    "tableNumber": 14,
+    "deliveryAddress": "Tordenskiolds gate 6, zip code: 1122",
+    "message":"add two pairs of chopsticks",
     "customer": {
         "name": "Joe Scooter",
         "phone": "+4710001000"
@@ -36,10 +39,7 @@ HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/ord
             "modifiers": [17, 20]
         },
         ...
-    ],
-    "tableNumber": 14,
-    "deliveryAddress": "Tordenskiolds gate 6, zip code: 1122",
-    "message":"add two pairs of chopsticks"
+    ]
 }
 ```
 
@@ -53,7 +53,7 @@ HTTP/1.1 POST https://111.222.111.222/api/v1/merchant-groups/1/merchants/101/ord
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-orderNo | integer | true | \d+ | order number (in WeOrder)
+orderNo | integer | true | \d+ | order number (in weorder)
 menuNo | integer | true | \d+ | menu id in POS (which is used for order)
 tip | float | true | | tip for waiters
 total | float | true | | order total price
@@ -61,19 +61,11 @@ paymentType | string | true | | payment type (see below)
 createdAt | string | true | YYYY-MM-DD HH:ii | create order time
 pickupAt | string | true | YYYY-MM-DD HH:ii | pickup or delivery time
 status | string | true | | order status (see below)
-customer | object | true | object | customer data
-customer.name | string | true | | customer name
-customer.phone | string | true | | customer phone
-orderLines | array | true | array of objects | list of order line
-orderLine.orderLineNo | integer | true | \d+ | order line number (in WeOrder) 
-orderLine.articleNo | integer | true | \d+ | article number (in POS)
-orderLine.price | float | true | | price of article with modifiers
-orderLine.quantity | integer | true | \d+ | article quantity
-orderLine.message | string | false | | additional message for ordered article
-orderLine.modifiers | array | false | array of integers | list of chosen modifiers (modifierNo)
 tableNumber | integer | false | \d+ | restaurant table number
 deliveryAddress | string | false | | delivery address
 message | string | false | | additional message for order
+customer | object | true | object | customer data  (see below)
+orderLines | array | true | array of objects | list of order lines  (see below)
 
 Payment type | Description
 ------------ | ----------- 
@@ -88,8 +80,23 @@ Status | Description
 ------------ | ----------- 
 NOT_CONFIRMED | order is not confirmed by waiter
 CONFIRMED | order is confirmed by waiter
+READY_FOR_PICKUP | order is ready for pickup
 DELIVERED | order is delivered
 CANCELLED | order is cancelled
+
+Customer parameters | Data type | Required? | Format | Description
+--------- | --------- | --------- | ------ | -----------
+name | string | true | | customer name
+phone | string | true | | customer phone
+
+Order line parameters | Data type | Required? | Format | Description
+--------- | --------- | --------- | ------ | -----------
+orderLineNo | integer | true | \d+ | order line number (in weorder) 
+articleNo | integer | true | \d+ | article number (in POS)
+price | float | true | | price of article with modifiers
+quantity | integer | true | \d+ | article quantity
+message | string | false | | additional message for ordered article
+modifiers | array | false | array of integers | list of chosen modifiers (modifierNo)
 
 > Response: no content
 

@@ -2,15 +2,15 @@
 
 Show already created merchant groups.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups
+HTTP/1.1 GET https://api.weorder.com/pos/v1/merchant-groups
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups`
+`HTTP/1.1 GET https://api.weorder.com/pos/v1/merchant-groups`
 
 > Response:
 

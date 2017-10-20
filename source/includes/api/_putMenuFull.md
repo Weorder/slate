@@ -2,15 +2,14 @@
 
 Update menu with all structure (main categories, categories, articles, modifier groups, modifiers).
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/full
+HTTP/1.1 PUT https://api.weorder.com/pos/v1/merchant-groups/1/menus/101/full
 ```
 
 ```json
 {
-    "menuNo": 101,
     "name": "September menu",
     "mainCategories": [
         {
@@ -63,7 +62,7 @@ HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/full
 
 ### HTTP Request
 
-`HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/full`
+`HTTP/1.1 PUT https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/full`
 
 `Content-Type: application/json`
 
@@ -71,13 +70,16 @@ HTTP/1.1 PUT https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/full
 
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
-menuNo | integer | true | \d+ | menu number
 name | string | false | | menu name
-mainCategories | array | true | array of objects | list of [Main category](#main-category-create) objects
-mainCategory.categories | array | true | array of objects | list of [Category](#category-create) objects
-category.articles | array | true | array of objects | list of [Article](#article-create) objects (except "imageBase64Encode" field)
-modifierGroups | array | true | array of objects | list of [Modifier group](#modifier-group-create) objects
-modifiers | array | false | array of objects | list of [Modifier](#modifier-create) objects
+mainCategories | array | true | array of objects | list of [Main category](#main-category-create) objects. Object must contain mainCategoryNo, name fields. Other fields are not required.
+categories | array | true | array of objects | list of [Category](#category-create) objects. Object must contain categoryNo, name fields. Other fields are not required.
+articles | array | true | array of objects | list of [Article](#article-create) objects. Object must contain articleNo, name, price fields. Other fields are not required. ImageBase64Encode field is not allowed here.
+modifierGroups | array | false | array of objects | list of [Modifier group](#modifier-group-create) objects. Object must contain modifierGroupNo, name fields. Other fields are not required.
+modifiers | array | false | array of objects | list of [Modifier](#modifier-create) objects. Object must contain modifierNo, name, price fields. Other fields are not required. 
+
+<aside class="notice">
+    The order of passed objects or object numbers is important and will be used for sorting.
+</aside>
 
 > Response: no content
 

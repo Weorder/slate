@@ -6,10 +6,10 @@ Fetch list of updates (orders which have been changed)
 For POS which doesn't support public url
 </aside>
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 POST https://weorder.com/api/pos/v1/updates
+HTTP/1.1 POST https://api.weorder.com/pos/v1/updates
 ```
 
 ```json
@@ -22,7 +22,7 @@ HTTP/1.1 POST https://weorder.com/api/pos/v1/updates
 
 ### HTTP Request
 
-`HTTP/1.1 POST https://weorder.com/api/pos/v1/updates`
+`HTTP/1.1 POST https://api.weorder.com/pos/v1/updates`
 
 `Content-Type: application/json`
 
@@ -107,9 +107,9 @@ ORDER_UPDATE | update of specific fields of order
 Parameter | Data type | Required? | Format | Description
 --------- | --------- | --------- | ------ | -----------
 updates | array | true | array of objects | list of updates
-update.updateNo | integer | true | \d+ | update number
-update.type | string | true | \w+ | update type
-update.data | object | true | object | object according to the type
+updateNo | integer | true | \d+ | update number
+type | string | true | \w+ | update type
+data | object | true | object | object according to the type
  
 Supported type | Object
 -------------- | ------------

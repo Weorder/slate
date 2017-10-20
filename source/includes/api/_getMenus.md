@@ -2,15 +2,15 @@
 
 Show already created menus for given merchant group.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-group/1/menus
+HTTP/1.1 GET https://api.weorder.com/pos/v1/merchant-group/1/menus
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus`
+`HTTP/1.1 GET https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/menus`
 
 > Response (success):
 

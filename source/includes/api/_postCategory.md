@@ -2,10 +2,10 @@
 
 Create new category.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/mainCategories/5/categories
+HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/1/menus/101/mainCategories/5/categories
 ```
 
 ```json
@@ -18,7 +18,7 @@ HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/menus/101/mainCat
 
 ### HTTP Request
 
-`HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/mainCategories/{mainCategoryNo}/categories`
+`HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/menus/{menuNo}/mainCategories/{mainCategoryNo}/categories`
 
 `Content-Type: application/json`
 

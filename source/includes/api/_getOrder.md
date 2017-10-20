@@ -2,15 +2,15 @@
 
 Get order.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups/1/merchants/101/orders/10002
+HTTP/1.1 GET https://api.weorder.com/pos/v1/merchant-groups/1/merchants/101/orders/10002
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/merchants/{merchantNo}/orders/{orderNo}`
+`HTTP/1.1 GET https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/merchants/{merchantNo}/orders/{orderNo}`
 
 > Response:
 

@@ -2,10 +2,10 @@
 
 Create new menu.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/menus
+HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/1/menus
 ```
 
 ```json
@@ -17,7 +17,7 @@ HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/menus
 
 ### HTTP Request
 
-`HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/menus`
+`HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/menus`
 
 `Content-Type: application/json`
 

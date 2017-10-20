@@ -2,15 +2,15 @@
 
 Show already created merchants for given merchant group.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups/1/merchants
+HTTP/1.1 GET https://api.weorder.com/pos/v1/merchant-groups/1/merchants
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/merchants`
+`HTTP/1.1 GET https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/merchants`
 
 > Response (success):
 
@@ -35,4 +35,4 @@ HTTP/1.1 GET https://weorder.com/api/pos/v1/merchant-groups/1/merchants
 
 `Content-Type: application/json`
 
-Array of [Merchant](#merchant-create) objects (except "imageBase64Encode" field).
+Array of [Merchant](#merchant-create) objects. ImageBase64Encode field is not allowed here.

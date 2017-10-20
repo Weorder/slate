@@ -2,10 +2,10 @@
 
 Create new merchant.
 
-> Request (POS -> WeOrder)
+> Request (POS -> weorder)
 
 ```
-HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/merchants
+HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/1/merchants
 ```
 
 ```json
@@ -15,14 +15,13 @@ HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/1/merchants
     "address": "Stranden 3",
     "zipCode": "0250",
     "imageUrl": "https://pos.com/restaurant.jpg",
-    "imageBase64Encode": "",
     "menuNo": 21
 }
 ```
 
 ### HTTP Request
 
-`HTTP/1.1 POST https://weorder.com/api/pos/v1/merchant-groups/{merchantGroupNo}/merchants`
+`HTTP/1.1 POST https://api.weorder.com/pos/v1/merchant-groups/{merchantGroupNo}/merchants`
 
 `Content-Type: application/json`
 
@@ -33,10 +32,10 @@ Parameter | Data type | Required? | Format | Description
 merchantNo | integer | true | \d+ | merchant number
 name | string | true | | merchant name
 address | string | false | | merchant address 
-zipCode | string | false | \d+ | merchant zip code
+zipCode | string | false | | merchant zip code
 imageUrl | string | false | | image url
 imageBase64Encode | string | false | | base64 encoded image
-menuNo | string | false | \d+ | menu number
+menuNo | integer | false | \d+ | menu number
 
 > Response: no content
 
